@@ -446,7 +446,7 @@
     <div class="cwsheader" style="width: 750px;">
       <table id="userSessions" border="0" width="100%"><tbody>
         <tr>
-          <td><strong>User</strong></td><td title="Number of connections/maximum"><strong>#</strong></td><td><strong>IP</strong></td><td title="Start Date"><strong>Start</strong></td><td title="Expire Date"><strong>Expire</strong></td><td title="Kick User"><strong>Kick</strong></td>
+          <td><strong>User</strong></td><td title="Number of connections/maximum"><strong>#</strong></td><td><strong>IP</strong></td>
           <td><strong>
             <xsl:choose>
               <xsl:when test="@toggle-duration"><a href="#" id="toggleDuration" title="Toggle Connected/Zapped Time">Zapped</a></xsl:when>
@@ -460,7 +460,7 @@
         <xsl:for-each select="../ca-profiles/profile">
           <xsl:sort select="@name"/>
           <tr>
-            <td colspan="14" align="left" bgcolor="#dddddd">
+            <td colspan="11" align="left" bgcolor="#dddddd">
               <div><xsl:value-of select="@name"/> (capacity: <xsl:value-of select="@capacity"/>, mapped-services: <xsl:value-of select="@mapped-services"/>)</div>
             </td>
           </tr>
@@ -499,11 +499,6 @@
                 <xsl:variable name="host" select="@host"/>
                 <xsl:variable name="count" select="count(//proxy-users/user/session[@host=$host])"/>
                 <xsl:if test="$count > 1">&#160;(<xsl:value-of select="$count"/>)</xsl:if> 
-              </td>
-              <td><xsl:value-of select="../@start-date"/></td>
-              <td><xsl:value-of select="../@expire-date"/></td>
-              <td>
-                <a target="_blank"><xsl:attribute name="href">/xmlHandler?command=kick-user&amp;name=<xsl:value-of select="../@name"/></xsl:attribute>kick</a>
               </td>
               <td>
                 <xsl:value-of select="@duration"/>
