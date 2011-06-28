@@ -500,7 +500,7 @@
                 <xsl:variable name="count" select="count(//proxy-users/user/session[@host=$host])"/>
                 <xsl:if test="$count > 1">&#160;(<xsl:value-of select="$count"/>)</xsl:if> 
               </td>
-               <td>
+              <td>
                 <a target="_blank"><xsl:attribute name="href">http://www.ip-adress.com/ip_tracer/<xsl:value-of select="@host"/></xsl:attribute>trace</a>
               </td>
               <td><xsl:value-of select="../@start-date"/></td>
